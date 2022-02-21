@@ -2,21 +2,47 @@ import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "./hooks/useDarkMode";
 import { GlobalStyles } from "./Themes/GlobalStyles";
 import { darkTheme, lightTheme } from "./Themes/Theme";
-import ThemeTogler from "./Themes/ThemeTogler";
+import Header from "./components/Header/Header";
+import styled from "styled-components";
+import "./style/reset.css";
+import "./style/index.css";
+import Today from "./components/Today/Today";
+import Сharacteristics from "./components/Сharacteristics/Сharacteristics";
+import WeatherOnFuture from "./components/WeatherOnFuture/WeatherOnFuture";
 
-function App() {
+const ContainerStyle = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+`;
+
+const WeatherTodayGroupStyle = styled.div`
+  display: flex;
+  margin: 40px 0;
+`;
+
+const Future = styled.div``;
+
+const App = () => {
   const { theme, themeToggler } = useDarkMode();
-
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
-    <div>
+    <ContainerStyle>
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        <ThemeTogler themeToggler={themeToggler} />
+        <Header themeToggler={themeToggler} />
+        <WeatherTodayGroupStyle>
+          <Today />
+          <Сharacteristics />
+        </WeatherTodayGroupStyle>
+        <Future>
+          <WeatherOnFuture />
+        </Future>
       </ThemeProvider>
-    </div>
+    </ContainerStyle>
   );
-}
+};
 
 export default App;
