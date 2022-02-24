@@ -2,6 +2,8 @@ import React from "react";
 import logo from "../../assets/images/Header/logo.svg";
 import styled from "styled-components";
 import ThemeTogler from "../ThemeToggler/ThemeTogler";
+import FormWeather from "../FormWeather/FormWeather";
+import SelectCity from "../SelectCity/SelectCity";
 
 const HeaderStyle = styled.div`
   display: flex;
@@ -39,8 +41,11 @@ const Header = (props) => {
         <TextStyle>React weather</TextStyle>
       </LogoStyle>
       <CityStyle className="">
+        <FormWeather />
         <ThemeTogler themeToggler={props.themeToggler} />
-        <SelectCityStyle className="">Выбрать город</SelectCityStyle>
+        <SelectCityStyle>
+          <SelectCity />
+        </SelectCityStyle>
       </CityStyle>
     </HeaderStyle>
   );

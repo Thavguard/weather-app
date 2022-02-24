@@ -5,6 +5,8 @@ import Pressure from "../../assets/images/Weather/Pressure.svg";
 import Wind from "../../assets/images/Weather/Wind.svg";
 import Rain from "../../assets/images/Weather/Rain.svg";
 import CloudImg from "../../assets/images/Weather/Cloud.svg";
+import { useGetWeatherQuery } from "../../store/weatherApi/weather.api";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
   position: relative;
@@ -65,6 +67,9 @@ const Result = styled.div`
 `;
 
 const Сharacteristics = () => {
+  const { city } = useSelector((state) => state.weather);
+  const { data, isLoading, error } = useGetWeatherQuery(city);
+
   return (
     <Container>
       <Padding>
@@ -73,28 +78,39 @@ const Сharacteristics = () => {
             <img src={Temp} alt="" />
           </Icon>
           <Text>Температура</Text>
-          <Result>20&#176; - ощущается как 17&#176;</Result>
+          <Result>
+            {(data && data.current.temp_c) || <span>0&nbsp;</span>}&#176; -
+            ощущается как&nbsp;
+            {(data && data.current.feelslike_c) || <span>0&nbsp;</span>}&#176;
+          </Result>
         </Item>
         <Item>
           <Icon>
             <img src={Pressure} alt="" />
           </Icon>
           <Text>Давление</Text>
-          <Result>765 мм ртутного столба - нормальное</Result>
+          <Result>
+            {(data && data.current.pressure_mb) || <span>0&nbsp;</span>}{" "}
+            миллибар
+          </Result>
         </Item>
         <Item>
           <Icon>
             <img src={Wind} alt="" />
           </Icon>
           <Text>Осадки</Text>
-          <Result>Без осадков</Result>
+          <Result>
+            {(data && data.current.precip_mm) || <span>0&nbsp;</span>} мм
+          </Result>
         </Item>
         <Item>
           <Icon>
             <img src={Rain} alt="" />
           </Icon>
           <Text>Ветер</Text>
-          <Result>3 м/с юго-запад - легкий ветер</Result>
+          <Result>
+            {(data && data.current.wind_kph) || <span>0&nbsp;</span>} км/ч
+          </Result>
         </Item>
       </Padding>
     </Container>

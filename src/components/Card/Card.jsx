@@ -5,6 +5,7 @@ import Cloudy from "../../assets/images/Sky/Cloudy.svg";
 import SmaillRainSun from "../../assets/images/Sky/SmaillRainSun.svg";
 import SmallRain from "../../assets/images/Sky/SmallRain.svg";
 import Sun from "../../assets/images/Sky/Sun.svg";
+import { useGetCurrentDate } from "../../hooks/useGetCurrentDate";
 
 const Container = styled.div`
   padding: 11px;
@@ -48,17 +49,24 @@ const Weather = styled.div`
   color: #939cb0;
 `;
 
-const Card = () => {
+const Card = (props) => {
+  let date = props.date;
+  date = date.slice(8);
+
+  const { dateToday, day, mouth, year, isToday, mouthNow, dateOfWeek } =
+    useGetCurrentDate(props.date);
+  console.log(dateToday, day, mouth, year, isToday, mouthNow, dateOfWeek);
+
   return (
     <Container>
-      <Day>Сегодня</Day>
-      <Data>28 авг</Data>
+      <Day>{isToday}</Day>
+      <Data>{date + " " + mouthNow}</Data>
       <Sky>
-        <img src={Rain} alt="" />
+        <img src={props.icon} alt="" />
       </Sky>
-      <Temp>+18</Temp>
-      <TempFill>+15</TempFill>
-      <Weather>Облачно</Weather>
+      <Temp>{props.temp}</Temp>
+      <TempFill>{props.tempFill}</TempFill>
+      <Weather>{props.weather}</Weather>
     </Container>
   );
 };

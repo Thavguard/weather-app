@@ -1,6 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Sun from "../../assets/images/Weather/sun.svg";
+import { useGetWeatherQuery } from "../../store/weatherApi/weather.api";
+import Cloudy from "../../assets/images/Sky/Cloudy.svg";
+import SmaillRainSun from "../../assets/images/Sky/SmaillRainSun.svg";
+import Rain from "../../assets/images/Sky/Rain.svg";
+import Sun from "../../assets/images/Sky/Sun.svg";
+import SmallRain from "../../assets/images/Sky/SmallRain.svg";
 
 const TodayStyle = styled.div`
   padding: 20px;
@@ -12,7 +18,9 @@ const Weather = styled.div`
   display: flex;
 `;
 
-const TemperatureGroup = styled.div``;
+const TemperatureGroup = styled.div`
+  width: 300px;
+`;
 
 const Temperature = styled.div`
   font-size: 96px;
@@ -26,7 +34,6 @@ const Sky = styled.div`
   display: flex;
   justifyh-content: center;
   align-items: center;
-  margin-left: 47px;
 `;
 
 const Info = styled.div`
@@ -41,21 +48,34 @@ const City = styled.div`
 `;
 
 const Today = () => {
+  const { city } = useSelector((state) => state.weather);
+  const { data, isLoading, error } = useGetWeatherQuery(city);
+
+  let Datatime = "";
+
+  if (data) {
+    Datatime = data.location.localtime;
+  }
+
+  const time = Datatime.slice(10);
+
   return (
     <TodayStyle>
       <Weather>
         <TemperatureGroup>
-          <Temperature>20&#176;</Temperature>
+          <Temperature>
+            {(data && data.current.temp_c) || <span>0</span>}&#176;
+          </Temperature>
           <TextToday>Сегодня</TextToday>
         </TemperatureGroup>
 
         <Sky>
-          <img src={Sun} alt="" width={119} height={119} />
+          <img src={(data && data.current.condition.icon) || Sun} alt="" />
         </Sky>
       </Weather>
       <Info>
-        <Time>Время: 21:54</Time>
-        <City>Город: Санкт-Петербург</City>
+        <Time>Время: {time}</Time>
+        <City>Город: {data && data.location.name}</City>
       </Info>
     </TodayStyle>
   );

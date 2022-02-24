@@ -8,7 +8,7 @@ import "./style/reset.css";
 import "./style/index.css";
 import Today from "./components/Today/Today";
 import Сharacteristics from "./components/Сharacteristics/Сharacteristics";
-import WeatherOnFuture from "./components/WeatherOnFuture/WeatherOnFuture";
+import WeatherOnWeek from "./components/WeatherOnWeek/WeatherOnWeek";
 
 const ContainerStyle = styled.div`
   width: 100%;
@@ -38,7 +38,7 @@ const App = () => {
           <Сharacteristics />
         </WeatherTodayGroupStyle>
         <Future>
-          <WeatherOnFuture />
+          <WeatherOnWeek />
         </Future>
       </ThemeProvider>
     </ContainerStyle>
