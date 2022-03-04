@@ -29,10 +29,10 @@ const ThisDay = ({ data }) => {
         </div>
         <div className={s.bottom__block}>
           <div className={s.this__time}>
-            Время: <span>{(data && data.main.temp) || "----"}</span>
+            Время: <span>{(data && data.main.temp) || ""}</span>
           </div>
           <div className={s.this__city}>
-            Город: <span>{(data && data.name) || "----"}</span>
+            Город: <span>{(data && data.name) || ""}</span>
           </div>
         </div>
       </Background>

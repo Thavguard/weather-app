@@ -9,7 +9,7 @@ import s from "./Home.module.scss";
 
 const Home = (props) => {
   const city = useSelector((state) => state.weather.city);
-  const { data, error, isLoading } = useGetWeatherQuery(city);
+  const { data, error, isLoading } = useGetWeatherQuery(city || "Москва");
 
   return (
     <div className={s.home}>
