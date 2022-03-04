@@ -1,47 +1,30 @@
+import React, { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import MonthStatistics from "./pages/MonthStatistics/MonthStatistics";
+import Header from "./shared/Header/Header";
+import Popup from "./shared/Popup/Popup";
 import { ThemeProvider } from "styled-components";
+import { darkTheme, lightTheme, GlobalStyles } from "./theme/theme";
 import { useDarkMode } from "./hooks/useDarkMode";
-import { GlobalStyles } from "./Themes/GlobalStyles";
-import { darkTheme, lightTheme } from "./Themes/Theme";
-import Header from "./components/Header/Header";
-import styled from "styled-components";
-import "./style/reset.css";
-import "./style/index.css";
-import Today from "./components/Today/Today";
-import Сharacteristics from "./components/Сharacteristics/Сharacteristics";
-import WeatherOnWeek from "./components/WeatherOnWeek/WeatherOnWeek";
-
-const ContainerStyle = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-`;
-
-const WeatherTodayGroupStyle = styled.div`
-  display: flex;
-  margin: 40px 0;
-`;
-
-const Future = styled.div``;
 
 const App = () => {
-  const { theme, themeToggler } = useDarkMode();
+  const [theme, themeToggler] = useDarkMode();
+
   const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
-    <ContainerStyle>
-      <ThemeProvider theme={themeMode}>
+    <ThemeProvider theme={themeMode}>
+      {/* <Popup /> */}
+      <div className="container">
         <GlobalStyles />
-        <Header themeToggler={themeToggler} />
-        <WeatherTodayGroupStyle>
-          <Today />
-          <Сharacteristics />
-        </WeatherTodayGroupStyle>
-        <Future>
-          <WeatherOnWeek />
-        </Future>
-      </ThemeProvider>
-    </ContainerStyle>
+        <Header switchTheme={themeToggler} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/month_statistics" element={<MonthStatistics />} />
+        </Routes>
+      </div>
+    </ThemeProvider>
   );
 };
 

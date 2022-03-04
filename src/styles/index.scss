@@ -1,0 +1,21 @@
+@import "./reset.scss";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;700&display=swap");
+@import "./variables.scss";
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  background-color: $light-background;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+}

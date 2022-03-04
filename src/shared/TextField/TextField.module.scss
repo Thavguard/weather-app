@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+}
+
+.form {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  background-color: #4793ff33;
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition: all 0.3s;
+
+  width: 400px;
+
+  &:hover {
+    box-shadow: 2px 5px 25px -3px #dae9ff;
+    transition: all 0.3s;
+  }
+}
+
+.input {
+  background: none;
+  border: none;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.search {
+    width: 100%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
