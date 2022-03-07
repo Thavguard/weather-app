@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import GlobalSvgSelector from "../../../../assets/icons/global/GlobalSvgSelector";
+import { timeConverter } from "../../../../services/timeConverter";
 import { GlobalStyles } from "../../../../theme/theme";
 import { Day } from "./Days.jsx";
 import s from "./Days.module.scss";
@@ -15,18 +16,32 @@ const Color = styled.div`
 `;
 
 const Card = ({ day }) => {
+  const time = timeConverter(day.dt);
+
+  let days = [
+    "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+  ];
+  let d = new Date();
+  let n = d.getDay();
+  console.log(days[n]);
+
   return (
     <>
-
       <Background className={s.card}>
-        <Color className={s.day}>{day.day}</Color>
-        <Color className={s.day__info}>{day.day_info}</Color>
+        <Color className={s.day}>{time.slice(0, 6)}</Color>
+        <Color className={s.day__info}>{time.slice(6, 11)}</Color>
         <div className={s.img}>
-          <GlobalSvgSelector id={day.icon_id} />
+          <GlobalSvgSelector id={day.weather[0].main} />
         </div>
-        <Color className={s.temp__day}>{day.temp_day}</Color>
-        <Color className={s.temp__night}>{day.temp_night}</Color>
-        <Color className={s.info}>{day.info}</Color>
+        <Color className={s.temp__day}>{day.temp.day}&#176;</Color>
+        <Color className={s.temp__night}>{day.temp.night}&#176;</Color>
+        <Color className={s.info}>{day.weather[0].main}</Color>
       </Background>
     </>
   );

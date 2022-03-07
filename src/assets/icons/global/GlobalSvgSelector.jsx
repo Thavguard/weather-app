@@ -62,12 +62,12 @@ const GlobalSvgSelector = ({ id }) => {
         </svg>
       );
 
-    case "sun":
+    case "Sun":
       return (
         <svg
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
+          width="40"
+          height="40"
+          viewBox="0 0 40 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -95,7 +95,7 @@ const GlobalSvgSelector = ({ id }) => {
         </svg>
       );
 
-    case "cloudy":
+    case "Clouds":
       return (
         <svg
           width="40"
@@ -144,7 +144,7 @@ const GlobalSvgSelector = ({ id }) => {
         </svg>
       );
 
-    case "rain":
+    case "Rain":
       return (
         <svg
           width="36"
@@ -192,7 +192,7 @@ const GlobalSvgSelector = ({ id }) => {
         </svg>
       );
 
-    case "rain-and-sun":
+    case "Rain-and-sun":
       return (
         <svg
           width="44"
@@ -259,7 +259,7 @@ const GlobalSvgSelector = ({ id }) => {
         </svg>
       );
 
-    case "small-rain":
+    case "Small-rain":
       return (
         <svg
           width="44"
@@ -353,6 +353,285 @@ const GlobalSvgSelector = ({ id }) => {
             fill="#4793FF"
             d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z"
           />
+        </svg>
+      );
+
+    case "Clear":
+      return (
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M24.0092 35.5016C30.3584 35.5016 35.5055 30.3547 35.5055 24.0058C35.5055 17.6568 30.3584 12.5099 24.0092 12.5099C17.6599 12.5099 12.5128 17.6568 12.5128 24.0058C12.5128 30.3547 17.6599 35.5016 24.0092 35.5016Z"
+            fill="url(#paint0_linear_2_547)"
+          />
+          <path
+            d="M34.8135 2.40051L32.1118 8.92324C31.2312 11.0477 28.0444 9.72795 28.925 7.60352L31.6267 1.08079C32.5073 -1.04363 35.6941 0.276087 34.8135 2.40051ZM19.0727 40.3988L16.371 46.9215C15.4904 49.0459 12.3036 47.7262 13.1842 45.6018L15.8859 39.0791C16.7665 36.9546 19.9533 38.2743 19.0727 40.3988ZM46.9215 16.3748L40.3984 19.0763C38.2739 19.9569 36.9541 16.7703 39.0786 15.8897L45.6017 13.1882C47.7262 12.3076 49.046 15.4942 46.9215 16.3748ZM8.92137 32.1149L2.39833 34.8164C0.273802 35.697 -1.04598 32.5104 1.07855 31.6298L7.60158 28.9283C9.72611 28.0477 11.0459 31.2343 8.92137 32.1149ZM45.6017 34.8187L39.0786 32.1172C36.9541 31.2366 38.2739 28.05 40.3984 28.9306L46.9215 31.6321C49.046 32.5127 47.7262 35.6993 45.6017 34.8187ZM7.60158 19.0786L1.07855 16.3771C-1.04598 15.4965 0.273802 12.3099 2.39833 13.1905L8.92137 15.892C11.0459 16.7726 9.72611 19.9592 7.60158 19.0786ZM16.3687 1.0785L19.0704 7.60122C19.951 9.72565 16.7642 11.0454 15.8836 8.92094L13.1819 2.39821C12.3013 0.273788 15.4881 -1.04593 16.3687 1.0785ZM32.1095 39.0768L34.8112 45.5995C35.6918 47.7239 32.505 49.0436 31.6244 46.9192L28.9227 40.3965C28.0421 38.2721 31.2289 36.9523 32.1095 39.0768Z"
+            fill="#FFB300"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_2_547"
+              x1="24.0092"
+              y1="12.5099"
+              x2="24.0092"
+              y2="35.1951"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#FFC227" />
+              <stop offset="1" stop-color="#FFB300" />
+            </linearGradient>
+          </defs>
+        </svg>
+      );
+
+    case "Snow":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          enable-background="new 0 0 512 512"
+          height="40px"
+          id="Layer_1"
+          version="1.1"
+          viewBox="0 0 512 512"
+          width="40px"
+        >
+          <circle cx="289.681" cy="382.756" fill="#D8EAEF" r="18.968" />
+          <circle cx="128.309" cy="472.381" fill="#D8EAEF" r="18.968" />
+          <circle cx="241.611" cy="458.785" fill="#D8EAEF" r="18.968" />
+          <circle cx="354.588" cy="447.662" fill="#D8EAEF" r="18.969" />
+          <path
+            d="M349.959,151.049c-5.997-62.967-61.931-112.316-130.038-112.316c-72.114,0-130.567,55.305-130.567,123.543  c0,6.617,0.551,13.117,1.61,19.445l0,0c-45.345,5.346-80.561,44.914-80.561,92.914c0,51.639,40.775,93.514,91.075,93.514H131.5  l102.25-37l140.433,37h61.153c36.605,0,66.261-26.482,66.261-59.162c0-29.539-24.246-54.033-55.944-58.449l0,0  c0-51.656-40.582-99.615-90.882-99.615C353.156,150.922,351.541,150.965,349.959,151.049"
+            fill="#D8EAEF"
+          />
+          <path
+            d="M301.095,151.049c-5.135-62.967-52.467-113.32-110.625-109.16C153.889,44.504,89.354,94.037,89.354,162.275  c0,6.617,1.61,19.445,1.61,19.445c-42.076,3.783-80.561,44.914-80.561,92.914c0,51.639,34.907,93.514,77.968,93.514h285.811  c31.34,0,56.727-26.482,56.727-59.162c0-29.539-20.756-54.033-47.893-58.449l0,0c0-51.656-34.743-99.615-77.805-99.615  C303.831,150.922,302.448,150.965,301.095,151.049c-22.808,1.434-43.016,14.605-56.507,34.576"
+            fill="#FFFFFF"
+          />
+          <path
+            d="  M339.5,368.148h95.836c36.605,0,66.261-26.482,66.261-59.162c0-29.539-24.246-54.033-55.944-58.449l0,0  c0-51.656-45.394-99.488-95.693-99.488c-1.614,0,1.582-0.084,0,0c-26.641,1.434-50.246,14.605-66.005,34.576"
+            fill="none"
+            stroke="#354F65"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="13"
+          />
+          <path
+            d="  M349.959,151.049c-5.997-62.967-61.931-112.316-130.038-112.316c-72.114,0-130.567,55.305-130.567,123.543  c0,6.617,0.551,13.117,1.61,19.445l0,0c-45.345,5.346-80.561,44.914-80.561,92.914c0,51.639,40.775,93.514,91.075,93.514H131.5"
+            fill="none"
+            stroke="#354F65"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            stroke-width="13"
+          />
+          <g>
+            <path
+              d="   M141.639,19.254"
+              fill="none"
+              stroke="#D8EAEF"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="7"
+            />
+          </g>
+          <circle cx="177.777" cy="396.35" fill="#D8EAEF" r="18.968" />
+          <g>
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="143.217"
+              x2="113.4"
+              y1="487.289"
+              y2="457.473"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="107.944"
+              x2="148.674"
+              y1="477.838"
+              y2="466.926"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="133.766"
+              x2="122.853"
+              y1="452.018"
+              y2="492.746"
+            />
+          </g>
+          <g>
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="255.121"
+              x2="225.305"
+              y1="473.695"
+              y2="443.879"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="219.849"
+              x2="260.579"
+              y1="464.244"
+              y2="453.33"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="245.67"
+              x2="234.757"
+              y1="438.422"
+              y2="479.152"
+            />
+          </g>
+          <g>
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="192.685"
+              x2="162.868"
+              y1="411.258"
+              y2="381.441"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="157.412"
+              x2="198.143"
+              y1="401.807"
+              y2="390.895"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="183.233"
+              x2="172.32"
+              y1="375.986"
+              y2="416.715"
+            />
+          </g>
+          <g>
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="304.589"
+              x2="274.772"
+              y1="397.664"
+              y2="367.848"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="269.316"
+              x2="310.047"
+              y1="388.213"
+              y2="377.299"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="295.138"
+              x2="284.225"
+              y1="362.391"
+              y2="403.121"
+            />
+          </g>
+          <g>
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="369.496"
+              x2="339.68"
+              y1="462.57"
+              y2="432.754"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="334.223"
+              x2="374.953"
+              y1="453.119"
+              y2="442.207"
+            />
+            <line
+              fill="none"
+              stroke="#354F65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              stroke-width="11"
+              x1="360.045"
+              x2="349.132"
+              y1="427.297"
+              y2="468.027"
+            />
+          </g>
         </svg>
       );
 

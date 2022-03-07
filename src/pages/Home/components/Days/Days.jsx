@@ -1,5 +1,12 @@
 import React from "react";
+import Preloader from "react-preloaders/lib/Preloader";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { usePosition } from "use-position";
+import {
+  useGetCoordQuery,
+  useGetOneCallQuery,
+} from "../../../../API/weather.api";
 import { GlobalStyles } from "../../../../theme/theme";
 import Card from "./Card";
 import s from "./Days.module.scss";
@@ -15,71 +22,19 @@ const Color = styled.div`
 `;
 
 const Days = (props) => {
-  const days = [
-    {
-      day: "Сегодня",
-      day_info: "28 авг",
-      icon_id: "sun",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "Облачно",
-    },
-    {
-      day: "Завтра",
-      day_info: "29 авг",
-      icon_id: "rain-and-sun",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "небольшой дождь и солнце",
-    },
-    {
-      day: "Ср",
-      day_info: "30 авг",
-      icon_id: "small-rain",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "небольшой дождь",
-    },
-    {
-      day: "Чт",
-      day_info: "28 авг",
-      icon_id: "cloudy",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "Облачно",
-    },
-    {
-      day: "Пт",
-      day_info: "28 авг",
-      icon_id: "rain",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "Облачно",
-    },
-    {
-      day: "Сб",
-      day_info: "28 авг",
-      icon_id: "sun",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "Облачно",
-    },
-    {
-      day: "Вс",
-      day_info: "28 авг",
-      icon_id: "sun",
-      temp_day: "+18",
-      temp_night: "+15",
-      info: "Облачно",
-    },
-  ];
+  const { city } = useSelector((state) => state.weather);
+  const { latitude, longitude } = usePosition();
+  const coord = useGetCoordQuery(city);
+  const forecast = useGetOneCallQuery(
+    (coord.data && coord.data[0]) || { lat: latitude, lon: longitude }
+  );
+
   return (
     <>
       <Tabs />
       <Background className={s.days}>
-        {days.map((day) => (
-          <Card day={day} key={day.day} />
-        ))}
+        {forecast.data &&
+          forecast.data.daily.map((day) => <Card day={day} key={day} />)}
       </Background>
     </>
   );

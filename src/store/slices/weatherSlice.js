@@ -11,7 +11,8 @@ export const weatherSlice = createSlice({
     reducers: {
         setCity(state, action) {
             state.city = action.payload
-        }
+        },
+
     }
 })
 

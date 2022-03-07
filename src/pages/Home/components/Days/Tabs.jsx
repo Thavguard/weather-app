@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import s from "./Days.module.scss";
 
@@ -17,13 +18,19 @@ const Tabs = (props) => {
   return (
     <div className={s.tabs}>
       <div className={s.tabs__wrapper}>
-        {tabs.map((tab) => (
-          <Background className={s.tab} key={tab.value}>
-            {tab.value}
-          </Background>
-        ))}
+        <Link className={s.link} to={"for-a-week"}>
+          <Background className={s.tab}>На неделю</Background>
+        </Link>
+        <Link className={s.link} to={"for-a-mouth"}>
+          <Background className={s.tab}>На месяц</Background>
+        </Link>
+        <Link className={s.link} to={"for-ten-days"}>
+          <Background className={s.tab}>На 10 дней</Background>
+        </Link>
       </div>
-      <Background className={s.cancel}>Отменить</Background>
+      <Link className={s.link} to={"for-a-week"}>
+        <Background className={s.cancel}>Отменить</Background>
+      </Link>
     </div>
   );
 };

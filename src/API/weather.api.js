@@ -6,9 +6,18 @@ export const weatherAPI = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: "https://api.openweathermap.org/" }),
     endpoints: (build) => ({
         getWeather: build.query({
-            query: (city) => `data/2.5/weather?q=${city}&units=metric&appid=${KEY} `
+            query: ({ lat, lon }) => `data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${KEY}`
+        }),
+
+        getCoord: build.query({
+            query: (city, limit = 1) => `geo/1.0/direct?q=${city}&limit=${limit}&appid=${KEY}
+            `
+        }),
+
+        getOneCall: build.query({
+            query: ({ lat, lon }) => `data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=${KEY}`
         })
     })
 })
 
-export const { useGetWeatherQuery } = weatherAPI
+export const { useGetWeatherQuery, useGetCoordQuery, useGetOneCallQuery } = weatherAPI
