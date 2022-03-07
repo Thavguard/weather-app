@@ -31,7 +31,7 @@ const ThisDay = (props) => {
             </div>
             <Color className={s.this__day_name}>Сегодня</Color>
           </div>
-          <GlobalSvgSelector id={props.weather.weather[0].main} />
+          <GlobalSvgSelector id={props.weather && props.weather.weather[0].main} />
         </div>
         <div className={s.bottom__block}>
           <div className={s.this__time}>
