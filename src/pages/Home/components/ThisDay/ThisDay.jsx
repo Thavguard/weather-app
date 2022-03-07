@@ -19,15 +19,6 @@ const ThisDay = (props) => {
   let Data = new Date();
   let Hour = Data.getHours();
   let Minutes = Data.getMinutes();
-  let cityName;
-
-  try {
-    cityName =
-      (props.coord && props.coord.local_names.ru) ||
-      (props.weather && props.weather.name);
-  } catch (error) {
-    console.log(error);
-  }
 
   return (
     <>
@@ -35,21 +26,20 @@ const ThisDay = (props) => {
         <div className={s.top__block}>
           <div className={s.top__block_wrapper}>
             <div className={s.this__temp}>
-              {(props.weather && Math.round(props.weather.main.temp)) || 0}
+              {Math.round(props.weather?.main.temp) || 0}
               &#176;
             </div>
             <Color className={s.this__day_name}>Сегодня</Color>
           </div>
-          <GlobalSvgSelector
-            id={props.weather && props.weather.weather[0].main}
-          />
+          <GlobalSvgSelector id={props.weather?.weather[0].main} />
         </div>
         <div className={s.bottom__block}>
           <div className={s.this__time}>
             Время: <span>{props.weather && `${Hour}:${Minutes}`}</span>
           </div>
           <div className={s.this__city}>
-            Город: <span>{cityName}</span>
+            Город:{" "}
+            <span>{props.coord?.local_names?.ru || props.weather?.name}</span>
           </div>
         </div>
       </Background>

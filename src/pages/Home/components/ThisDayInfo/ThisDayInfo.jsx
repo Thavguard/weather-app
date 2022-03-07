@@ -18,29 +18,28 @@ const ThisDayInfo = ({ data }) => {
     {
       iconId: "temp",
       name: "Температура",
-      value: `${(data && Math.round(data.main.temp)) || "0"}° - ощущается как ${
-        (data && Math.round(data.main.feels_like)) || "0"
+      value: `${Math.round(data?.main.temp) || "0"}° - ощущается как ${
+        Math.round(data?.main.feels_like) || "0"
       }°`,
     },
     {
       iconId: "pressure",
       name: "Давление",
-      value: `${(data && Math.round(data.main.pressure)) || 0} миллибар
+      value: `${Math.round(data?.main.pressure) || 0} миллибар
       `,
     },
     {
       iconId: "precipitation",
       name: "Влажность",
-      value: `${(data && Math.round(data.main.humidity)) || 0}%`,
+      value: `${Math.round(data?.main.humidity) || 0}%`,
     },
     {
       iconId: "wind",
       name: "Ветер",
-      value: `${(data && Math.round(data.wind.speed)) || 0}м/с ${
-        (data && Math.round(data.wind.deg)) || 0
+      value: `${Math.round(data?.wind.speed) || 0}м/с ${
+        Math.round(data?.wind.deg) || 0
       }°`,
     },
-
   ];
   return (
     <Background className={s.This__Day__Info}>
