@@ -14,16 +14,25 @@ import { weatherSliceActions } from "./store/slices/weatherSlice";
 const App = () => {
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === "light" ? lightTheme : darkTheme;
+  const [isModal, setModal] = useState(false);
+  const onClose = () => setModal(false);
+  // <button onClick={() => setModal(true)}>Клик-клик-клик</button>
 
   return (
     <ThemeProvider theme={themeMode}>
-      {/* <Popup /> */}
+      <Popup
+        visible={isModal}
+        title="Заголовок"
+        content={<p>Что-то важное</p>}
+        footer={<button onClick={onClose}>Закрыть</button>}
+        onClose={onClose}
+      />
       <div className="container" onClick={() => {}}>
         <GlobalStyles />
         <Header switchTheme={themeToggler} />
         <Routes>
-          <Route path="*" element={<Home />} />
-          <Route path="/month_statistics" element={<MonthStatistics />} />
+          <Route path="*" element={<Home setModal={setModal} />} />
+          <Route path="/month-statistics" element={<MonthStatistics />} />
         </Routes>
       </div>
     </ThemeProvider>

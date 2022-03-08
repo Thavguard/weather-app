@@ -24,7 +24,7 @@ const Home = (props) => {
         <ThisDay weather={weather.data} coord={coord.data && coord.data[0]} />
         <ThisDayInfo data={weather.data} />
       </div>
-      <Days />
+      <Days setModal={props.setModal} />
     </div>
   );
 };

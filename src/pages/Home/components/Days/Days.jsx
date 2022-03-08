@@ -34,7 +34,15 @@ const Days = (props) => {
       <Tabs />
       <Background className={s.days}>
         {forecast.data &&
-          forecast.data.daily.map((day) => <Card day={day} key={day} />)}
+          forecast.data.daily
+            .slice(0, -1)
+            .map((day, index) => (
+              <Card
+                day={day}
+                key={index}
+                setModal={props.setModal}
+              />
+            ))}
       </Background>
     </>
   );

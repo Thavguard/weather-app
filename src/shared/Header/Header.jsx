@@ -15,12 +15,34 @@ const Header = ({ switchTheme }) => {
   const colorStyles = {
     control: (styles) => ({
       ...styles,
-      backgroundColor: 0 ? "#4f4f4f" : "#DAE9FF",
+      backgroundColor: 1 ? "#4f4f4f" : "#DAE9FF",
       width: "194px",
       height: "37px",
       border: "none",
       borderRadius: "10px",
       zIndex: 100,
+    }),
+
+    option: (styles, state) => ({
+      ...styles,
+      color: 1 ? "#fff" : "#000",
+      backgroundColor: 1
+        ? state.isFocused
+          ? "#3f3f3f"
+          : ""
+        : state.isFocused
+        ? "#cfddf2"
+        : "",
+    }),
+
+    menu: (styles, state) => ({
+      ...styles,
+      backgroundColor: 1 ? "#4f4f4f" : "#DAE9FF",
+    }),
+
+    singleValue: (styles) => ({
+      ...styles,
+      color: 1 ? "#fff" : "#000",
     }),
   };
 

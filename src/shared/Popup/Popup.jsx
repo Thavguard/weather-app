@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { usePosition } from "use-position";
+import { useGetCoordQuery, useGetOneCallQuery } from "../../API/weather.api";
 import GlobalSvgSelector from "../../assets/icons/global/GlobalSvgSelector";
 import { Item } from "../../pages/Home/components/ThisDayInfo/ThisDayInfo";
 import ThisDayItem from "../../pages/Home/components/ThisDayInfo/ThisDayItem";
+import { timeConverter } from "../../services/timeConverter";
 import s from "./Popup.module.scss";
 
 const Background = styled.div`
@@ -37,22 +41,51 @@ const items = [
   },
 ];
 
-const Popup = () => {
+const Popup = ({ visible = false, onClose }) => {
+  // создаем обработчик нажатия клавиши Esc
+  const onKeydown = ({ key }) => {
+    switch (key) {
+      case "Escape":
+        onClose();
+        break;
+    }
+  };
+
+  // c помощью useEffect цепляем обработчик к нажатию клавиш
+  useEffect(() => {
+    document.addEventListener("keydown", onKeydown);
+    return () => document.removeEventListener("keydown", onKeydown);
+  });
+
+  const { city } = useSelector((state) => state.weather);
+  const { latitude, longitude } = usePosition();
+  const coord = useGetCoordQuery(city);
+  const forecast = useGetOneCallQuery(
+    (coord.data && coord.data[0]) || { lat: latitude, lon: longitude }
+  );
+
+  const data = forecast?.data?.daily[0];
+  const time = timeConverter(data?.dt);
+
+  // если компонент невидим, то не отображаем его
+  if (!visible) return null;
+
+  // или возвращаем верстку модального окна
   return (
     <>
       <div className={s.blur}></div>
       <Background className={s.popup}>
         <div className={s.day}>
-          <div className={s.day__temp}>20&#176;</div>
-          <Color className={s.day__name}>Среда</Color>
+          <div className={s.day__temp}>{data.temp.day}&#176;</div>
+          <Color className={s.day__name}>{time.slice(0, 6)}</Color>
           <div className={s.img}>
-            <GlobalSvgSelector id={"sun"} />
+            <GlobalSvgSelector id={data.weather[0].main} />
           </div>
           <div className={s.day__time}>
             Время: <span>21:57</span>
           </div>
           <div className={s.day__city}>
-            Город: <span>Санкт-Питербург</span>
+            Город: <span>{coord.data && coord.data[0].local_names.ru}</span>
           </div>
         </div>
         <div className={s.This__Day__Info}>
@@ -62,7 +95,7 @@ const Popup = () => {
             ))}
           </div>
         </div>
-        <div className={s.close}>
+        <div className={s.close} onClick={onClose}>
           <GlobalSvgSelector id="close" />
         </div>
       </Background>

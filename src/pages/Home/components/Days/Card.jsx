@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import GlobalSvgSelector from "../../../../assets/icons/global/GlobalSvgSelector";
 import { timeConverter } from "../../../../services/timeConverter";
@@ -15,33 +16,20 @@ const Color = styled.div`
   color: ${(props) => props.theme.textColor};
 `;
 
-const Card = ({ day }) => {
-  const time = timeConverter(day.dt);
-
-  let days = [
-    "Воскресенье",
-    "Понедельник",
-    "Вторник",
-    "Среда",
-    "Четверг",
-    "Пятница",
-    "Суббота",
-  ];
-  let d = new Date();
-  let n = d.getDay();
-  console.log(days[n]);
+const Card = (props) => {
+  const time = timeConverter(props.day.dt);
 
   return (
     <>
-      <Background className={s.card}>
+      <Background className={s.card} onClick={props.setModal}>
         <Color className={s.day}>{time.slice(0, 6)}</Color>
         <Color className={s.day__info}>{time.slice(6, 11)}</Color>
         <div className={s.img}>
-          <GlobalSvgSelector id={day.weather[0].main} />
+          <GlobalSvgSelector id={props.day.weather[0].main} />
         </div>
-        <Color className={s.temp__day}>{day.temp.day}&#176;</Color>
-        <Color className={s.temp__night}>{day.temp.night}&#176;</Color>
-        <Color className={s.info}>{day.weather[0].main}</Color>
+        <Color className={s.temp__day}>{props.day.temp.day}&#176;</Color>
+        <Color className={s.temp__night}>{props.day.temp.night}&#176;</Color>
+        <Color className={s.info}>{props.day.weather[0].main}</Color>
       </Background>
     </>
   );
