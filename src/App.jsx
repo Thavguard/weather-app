@@ -20,19 +20,14 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeMode}>
-      <Popup
-        visible={isModal}
-        title="Заголовок"
-        content={<p>Что-то важное</p>}
-        footer={<button onClick={onClose}>Закрыть</button>}
-        onClose={onClose}
-      />
+      <Popup visible={isModal} onClose={onClose} />
       <div className="container" onClick={() => {}}>
         <GlobalStyles />
         <Header switchTheme={themeToggler} />
         <Routes>
-          <Route path="*" element={<Home setModal={setModal} />} />
+          <Route path="/" element={<Home setModal={setModal} />} />
           <Route path="/month-statistics" element={<MonthStatistics />} />
+          <Route path="*" element={<div>Нет такой страницы дружище(</div>} />
         </Routes>
       </div>
     </ThemeProvider>

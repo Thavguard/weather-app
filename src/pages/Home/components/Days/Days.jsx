@@ -37,11 +37,7 @@ const Days = (props) => {
           forecast.data.daily
             .slice(0, -1)
             .map((day, index) => (
-              <Card
-                day={day}
-                key={index}
-                setModal={props.setModal}
-              />
+              <Card day={day} key={index} setModal={props.setModal} />
             ))}
       </Background>
     </>
