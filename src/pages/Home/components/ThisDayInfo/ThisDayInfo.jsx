@@ -18,27 +18,25 @@ const ThisDayInfo = ({ data }) => {
     {
       iconId: "temp",
       name: "Температура",
-      value: `${Math.round(data?.main.temp) || "0"}° - ощущается как ${
-        Math.round(data?.main.feels_like) || "0"
-      }°`,
+      value: `${Math.round(data?.current.temp) || "0"}° - ощущается как ${Math.round(data?.current.feels_like) || "0"
+        }°`,
     },
     {
       iconId: "pressure",
       name: "Давление",
-      value: `${Math.round(data?.main.pressure) || 0} миллибар
+      value: `${Math.round(data?.current.pressure) || 0} миллибар
       `,
     },
     {
       iconId: "precipitation",
       name: "Влажность",
-      value: `${Math.round(data?.main.humidity) || 0}%`,
+      value: `${Math.round(data?.current.humidity) || 0}%`,
     },
     {
       iconId: "wind",
       name: "Ветер",
-      value: `${Math.round(data?.wind.speed) || 0}м/с ${
-        Math.round(data?.wind.deg) || 0
-      }°`,
+      value: `${Math.round(data?.current.wind_speed) || 0}м/с ${Math.round(data?.current.wind_deg) || 0
+        }°`,
     },
   ];
   return (

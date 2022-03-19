@@ -12,23 +12,24 @@ const tabs = [
 const Background = styled.div`
   background: ${(props) => props.theme.components};
   transition: "0.3s all";
+  color: ${(props) => props.theme.textColor};
 `;
 
 const Tabs = (props) => {
   return (
     <div className={s.tabs}>
       <div className={s.tabs__wrapper}>
-        <Link className={s.link} to={"for-a-week"}>
+        <Link className={s.link} to={"/"}>
           <Background className={s.tab}>На неделю</Background>
         </Link>
-        <Link className={s.link} to={"for-a-mouth"}>
-          <Background className={s.tab}>На месяц</Background>
+        <Link className={s.link} to={"48hours"}>
+          <Background className={s.tab}>На 48 часов</Background>
         </Link>
-        <Link className={s.link} to={"for-ten-days"}>
-          <Background className={s.tab}>На 10 дней</Background>
+        <Link className={s.link} to={"3hours"}>
+          <Background className={s.tab}>На 3 часа</Background>
         </Link>
       </div>
-      <Link className={s.link} to={"for-a-week"}>
+      <Link className={s.link} to={"/"}>
         <Background className={s.cancel}>Отменить</Background>
       </Link>
     </div>

@@ -26,12 +26,12 @@ const ThisDay = (props) => {
         <div className={s.top__block}>
           <div className={s.top__block_wrapper}>
             <div className={s.this__temp}>
-              {Math.round(props.weather?.main.temp) || 0}
+              {Math.round(props.weather?.current.temp) || 0}
               &#176;
             </div>
             <Color className={s.this__day_name}>Сегодня</Color>
           </div>
-          <GlobalSvgSelector id={props.weather?.weather[0].main} />
+          <GlobalSvgSelector id={props.weather?.current.weather[0].main} />
         </div>
         <div className={s.bottom__block}>
           <div className={s.this__time}>
@@ -39,7 +39,7 @@ const ThisDay = (props) => {
           </div>
           <div className={s.this__city}>
             Город:{" "}
-            <span>{props.coord?.local_names?.ru || props.weather?.name}</span>
+            <span>{props.coord?.local_names?.ru || props.weather?.timezone}</span>
           </div>
         </div>
       </Background>

@@ -1,13 +1,14 @@
 import React from "react";
 import Preloader from "react-preloaders/lib/Preloader";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
 import { usePosition } from "use-position";
 import {
   useGetCoordQuery,
   useGetOneCallQuery,
 } from "../../../../API/weather.api";
-import { GlobalStyles } from "../../../../theme/theme";
+import { weatherSliceActions } from "../../../../store/slices/weatherSlice";
 import Card from "./Card";
 import s from "./Days.module.scss";
 import Tabs from "./Tabs";
@@ -32,14 +33,39 @@ const Days = (props) => {
   return (
     <>
       <Tabs />
-      <Background className={s.days}>
-        {forecast.data &&
-          forecast.data.daily
-            .slice(0, -1)
-            .map((day, index) => (
-              <Card day={day} key={index} setModal={props.setModal} />
-            ))}
-      </Background>
+      <Routes>
+        <Route path="*" element={
+          <Background className={s.days}>
+            {forecast.data &&
+              forecast.data.daily
+                .slice(0, -1)
+                .map((day, index) => (
+                  <Card day={day} key={index} setModal={props.setModal} index={index} />
+                ))}
+          </Background>
+        } />
+        <Route path="48hours" element={
+          <Background className={s.days}>
+            {forecast.data &&
+              forecast.data.hourly
+                .slice(0, -1)
+                .map((day, index) => (
+                  <Card day={day} key={index} setModal={props.setModal} index={index} />
+                ))}48
+          </Background>
+        } />
+        <Route path="3hours" element={
+          <Background className={s.days}>
+            {forecast.data &&
+              forecast.data.daily
+                .slice(0, -1)
+                .map((day, index) => (
+                  <Card day={day} key={index} setModal={props.setModal} index={index} />
+                ))}3
+          </Background>
+        } />
+      </Routes>
+
     </>
   );
 };
