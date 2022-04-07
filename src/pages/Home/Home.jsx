@@ -14,7 +14,10 @@ const Home = (props) => {
     const { latitude, longitude } = usePosition();
 
     const coord = useGetCoordQuery(city);
+    
+    
     const weather = useGetOneCallQuery((coord.data && coord.data[0]) || { lat: latitude, lon: longitude });
+
 
     return (<div className={s.home}>
         <div className={s.wrapper}>
