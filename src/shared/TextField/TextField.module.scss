@@ -3,7 +3,7 @@
 }
 
 .form {
-  width: 100%;
+  max-width: 100%;
 }
 
 .wrapper {
@@ -37,8 +37,14 @@
 }
 
 .search {
-    width: 100%;
+  max-width: 100%;
   width: 25px;
   height: 25px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 479px) {
+  .wrapper {
+    width: 300px;
+  }
 }

@@ -58,3 +58,15 @@
   position: relative;
   z-index: 0;
 }
+
+@media screen and (max-width: 479px) {
+  .This__Day__Info {
+    margin: 20px auto 0 auto;
+    max-width: 380px;
+    padding: 20px;
+  }
+
+  .cloud__img {
+    display: none;
+  }
+}

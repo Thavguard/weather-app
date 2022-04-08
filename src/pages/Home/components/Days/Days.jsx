@@ -9,7 +9,8 @@ import {
   useGetOneCallQuery,
 } from "../../../../API/weather.api";
 import { weatherSliceActions } from "../../../../store/slices/weatherSlice";
-import Card from "./Card";
+import Card from "./Cards/Card";
+import CardH from "./Cards/CardH";
 import s from "./Days.module.scss";
 import Tabs from "./Tabs";
 
@@ -50,8 +51,8 @@ const Days = (props) => {
               forecast.data.hourly
                 .slice(0, -1)
                 .map((day, index) => (
-                  <Card day={day} key={index} setModal={props.setModal} index={index} />
-                ))}48
+                  <CardH day={day} key={index} index={index} />
+                ))}
           </Background>
         } />
         <Route path="3hours" element={
@@ -60,8 +61,8 @@ const Days = (props) => {
               forecast.data.daily
                 .slice(0, -1)
                 .map((day, index) => (
-                  <Card day={day} key={index} setModal={props.setModal} index={index} />
-                ))}3
+                  <Card day={day} key={index} index={index} />
+                ))}
           </Background>
         } />
       </Routes>

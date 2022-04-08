@@ -18,8 +18,9 @@
   margin-bottom: 30px;
 
   svg {
-    width: 119px;
-    height: 119px;
+    max-width: 119px;
+    width: 100%;
+    min-height: 119px;
   }
 
   .this__temp {
@@ -39,5 +40,12 @@
     color: $base-color;
     font-size: 25px;
     line-height: 30px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .ThisDay {
+    margin: 0 auto;
+    max-width: 380px;
   }
 }

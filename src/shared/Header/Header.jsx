@@ -31,8 +31,8 @@ const Header = ({ switchTheme }) => {
           ? "#3f3f3f"
           : ""
         : state.isFocused
-        ? "#cfddf2"
-        : "",
+          ? "#cfddf2"
+          : "",
     }),
 
     menu: (styles, state) => ({
@@ -65,6 +65,7 @@ const Header = ({ switchTheme }) => {
           options={options}
           styles={colorStyles}
           defaultValue={options[0]}
+          className={s.select}
         />
       </div>
     </header>

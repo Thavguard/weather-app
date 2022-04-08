@@ -15,7 +15,11 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1230px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding: 20px 15px 0 15px;
+}
+
+img {
+  max-width: 100%;
 }

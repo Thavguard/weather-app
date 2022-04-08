@@ -15,18 +15,19 @@ const App = () => {
   const themeMode = theme === "light" ? lightTheme : darkTheme;
   const { isModal } = useSelector(state => state.weather)
 
-  return (<ThemeProvider theme={themeMode}>
-    <Popup visible={isModal} />
-    <div className="container" >
-      <GlobalStyles />
-      <Header switchTheme={themeToggler} />
-      <Routes>
-        <Route path="*" element={<Home />} />
-        <Route path="/month-statistics" element={<MonthStatistics />} />
-      </Routes>
-
-    </div>
-  </ThemeProvider >);
+  return (
+    <ThemeProvider theme={themeMode}>
+      <Popup visible={isModal} />
+      <div className="container" >
+        <GlobalStyles />
+        <Header switchTheme={themeToggler} />
+        <Routes>
+          <Route path="*" element={<Home />} />
+          <Route path="/month-statistics" element={<MonthStatistics />} />
+        </Routes>
+      </div>
+    </ThemeProvider >
+  );
 };
 
 export default App;

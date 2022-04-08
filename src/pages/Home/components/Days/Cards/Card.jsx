@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import GlobalSvgSelector from "../../../../assets/icons/global/GlobalSvgSelector";
-import { timeConverter } from "../../../../services/timeConverter";
-import { weatherSliceActions } from "../../../../store/slices/weatherSlice";
-import { GlobalStyles } from "../../../../theme/theme";
-import { Day } from "./Days.jsx";
-import s from "./Days.module.scss";
+import GlobalSvgSelector from "../../../../../assets/icons/global/GlobalSvgSelector";
+import { timeConverter } from "../../../../../services/timeConverter";
+import { weatherSliceActions } from "../../../../../store/slices/weatherSlice";
+import { GlobalStyles } from "../../../../../theme/theme";
+import { Day } from "../Days.jsx";
+import s from "./Card.module.scss";
 
 const Background = styled.div`
   background: ${(props) => props.theme.days};
